@@ -1,0 +1,26 @@
+int w;
+void setup(){
+  pinMode(4,OUTPUT);
+  pinMode(7,INPUT);
+•	In this paragraph of code we have first initialized a variable “w” and then we have declared a function inside that function we have used pinMode keyword to declare the output pin i.e 4. This pin will send the signals to the 4-channel Relay board depending on the signal sent by this pin the board will decide whether to continue watering the plant or not ,now we have declared pin 7 as input pin it will take the input signal coming from the soil sensor and will take the input to the arduino board so that it can give an output signal through pin 4.
+  
+}
+void loop()
+{
+  w=digitalRead(7);
+•	Here in this line of code we have assigned the variable a task by using the inbuilt function from the arduino library we are telling the arduino to read the signals sent by the soil sensor through the INPUT pin 7.
+  if (w==HIGH)
+•	If the field or pot is full of water then we it will immediately break the supply of water this we will know by the above code line that whether the signal sent tells that the field is full or not if it is full we need to cut the water supply we have used LOW keyword to cut the supply of water.
+{
+    digitalWrite(4,LOW);
+  }
+  else
+  {
+    digitalWrite(4,HIGH);
+  }
+•	If the above block does not execute that means that the field or pot is not full then this block will execute we have used HIGH keyword to continuously supply the water and signal, we are using the pin 4 the output pin that will tell the water pump to remain high, the signal we are sending to this is going through arduino to relay board and then to the water pump.
+  delay(600);
+•	Here we are using delay function to command the system after how much time the water should be supplied to in the filed. basically we are delaying the output so that the user can adjust the pipe at the last moment if he want to.
+}
+
+•	In this project we have used the C programming language to code the program that will control and manage the full system and according to this code the devices will operate, in this system arduino is used as a microcontroller which holds the code in it and manages all the activities during the execution of the program.
